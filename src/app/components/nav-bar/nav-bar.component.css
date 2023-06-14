@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .navBar {
+        @apply flex flex-row bg-red-500 w-full h-[3.5rem] items-center;
+    }
+
+    .logo {
+        @apply flex-none px-[0.4%];
+    }
+
+    .links {
+        @apply grow hidden md:block;
+    }
+
+    .listaLinks {
+        @apply flex flex-row justify-center;
+    }
+
+    .itemsLinks {
+        @apply  px-4;
+    }
+
+    .link {
+        @apply text-white text-lg font-roboto font-normal not-italic;
+    }
+
+    .dropdown {
+        @apply md:hidden ml-auto;
+    }
+}
