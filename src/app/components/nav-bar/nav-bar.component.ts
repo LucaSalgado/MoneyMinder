@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,8 +8,14 @@ import { Component, HostListener } from '@angular/core';
 export class NavBarComponent {
   menuVisivel = true;
   isMobile = false;
-
   @HostListener('window:resize', ['$event'])
+
+  ngOnInit() {
+    if (window.innerWidth < 768 && !this.isMobile) {
+      this.menuVisivel = false;
+      this.isMobile = true;
+    }
+  }
 
   onWindowResize(event: any) {
     // Verifica se a tela saiu do modo mobile (largura maior que 768 pixels)
