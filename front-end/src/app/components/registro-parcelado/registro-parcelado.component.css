@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  label {
+    @apply font-roboto;
+  }
+
+  .unicoForm {
+    @apply w-[70%] h-[70%] ml-[15%] mt-[15%] rounded shadow border;
+  }
+
+  .apelido {
+    @apply block py-4 px-2;
+  }
+
+  .numeroParcelas {
+    @apply block py-4 px-2;
+  }
+
+  .dataPagamento {
+    @apply block py-4 px-2 relative;
+  }
+
+  .nome {
+    @apply block py-4 px-2;
+  }
+
+  .styledInput {
+    @apply w-full border rounded border-black;
+  }
+
+  .styledInputDate {
+    @apply w-full rounded bg-white border border-black appearance-none;
+  }
+
+  .styledInputDate::-webkit-calendar-picker-indicator {
+    @apply hidden;
+  }
+
+  .calendarIcon {
+    @apply absolute w-6 h-6 right-3 top-1/2;
+  }
+
+  .cadastrar {
+    @apply border rounded my-4 w-fit ml-4 mb-5 border-transparent bg-blue-500 text-white active:bg-blue-700 hover:bg-blue-600;
+  }
+
+  .cadastrar button[type="submit"] {
+    @apply p-2;
+  }
+
+  .titulo {
+    @apply ml-[13%] mt-[5%] font-bold text-base;
+  }
+
+  .alert {
+    @apply bg-red-200 rounded text-red-600  text-center p-0.5;
+  }
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}

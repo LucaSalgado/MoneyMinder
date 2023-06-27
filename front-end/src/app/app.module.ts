@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegistroUnicoComponent } from './components/registro-unico/registro-unico.component';
+import { RegistroParceladoComponent } from './components/registro-parcelado/registro-parcelado.component';
+import { MongoDBService } from './services/mongoDB/mongo-db.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,16 @@ import { RegistroUnicoComponent } from './components/registro-unico/registro-uni
     DashboardComponent,
     RegistroComponent,
     HomeComponent,
-    RegistroUnicoComponent
+    RegistroUnicoComponent,
+    RegistroParceladoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [MongoDBService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
