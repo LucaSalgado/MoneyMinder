@@ -44,10 +44,6 @@ async function applySchemaValidation(db: Db) {
             required: ["nParcela", "valor", "dataPagamento"],
             additionalProperties: false,
             properties: {
-              nParcela: {
-                bsonType: "int",
-                description: "'nParcela' is required and is an integer",
-              },
               valor: {
                 bsonType: "number",
                 description: "'valor' is required and is a number",

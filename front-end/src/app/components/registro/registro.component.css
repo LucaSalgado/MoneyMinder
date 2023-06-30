@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .styledInputDate {
+    @apply w-full rounded bg-white border border-black appearance-none;
+  }
+  .calendarIcon {
+    @apply absolute w-6 h-6 right-0 top-1/2;
+  }
+  label {
+    @apply font-roboto;
+  }
+
+  .styledInputDate::-webkit-calendar-picker-indicator {
+    @apply hidden;
+  }
+
+  .dataPagamento {
+    @apply relative;
+  }
+
+  .styledInput {
+    @apply w-full border rounded border-black;
+  }
+
+  .styledInputCheckbox {
+    @apply align-middle h-[1.2rem] w-[1.2rem];
+  }
+
+  .registro {
+    @apply shadow border rounded mx-[5%] mt-[5%] px-3 py-4;
+  }
+
+  .inputBloco {
+    @apply my-4;
+  }
+
+  .titulo {
+    @apply items-center text-center font-bold text-base;
+  }
+
+  .inputBotoes {
+    @apply grid grid-cols-4 grid-rows-2 gap-x-1 gap-y-[2rem];
+  }
+
+  .styledBotao {
+    @apply row-start-1 col-span-1 border rounded border-black;
+  }
+  
+  .cadastrarBotao {
+    @apply row-start-2 col-start-2 col-span-2 min-w-fit px-3 border rounded border-black;
+  }
+
+  .parcelas {
+    @apply flex overflow-x-hidden scroll-smooth transition-transform duration-500;
+  }
+
+  .styledDiv {
+    @apply px-0.5 inline w-full shrink-0;
+  }
+}
