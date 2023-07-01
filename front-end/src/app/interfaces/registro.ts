@@ -9,7 +9,6 @@ export interface Registro {
 }
 
 export interface Parcela {
-    nParcela: number,
     valor: number,
     dataPagamento: Date,
     pago?: boolean

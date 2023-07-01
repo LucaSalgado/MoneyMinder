@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroPageComponent {
+  transacao: string = 'pagar'; // Valor padrão do botão de rádio selecionado
 
+  atualizarTransacao(valor: string) {
+    this.transacao = valor;
+  }
 }

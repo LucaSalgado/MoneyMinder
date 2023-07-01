@@ -11,8 +11,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegistroPageComponent } from './pages/registro/registro.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
-import { RegistroUnicoComponent } from './components/registro-unico/registro-unico.component';
-import { RegistroParceladoComponent } from './components/registro-parcelado/registro-parcelado.component';
 import { MongoDBService } from './services/mongoDB/mongo-db.service';
 
 @NgModule({
@@ -24,8 +22,6 @@ import { MongoDBService } from './services/mongoDB/mongo-db.service';
     RegistroPageComponent,
     RegistroComponent,
     HomeComponent,
-    RegistroUnicoComponent,
-    RegistroParceladoComponent
   ],
   imports: [
     BrowserModule,
