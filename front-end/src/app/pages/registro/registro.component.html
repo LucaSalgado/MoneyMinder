@@ -2,16 +2,15 @@
   <fieldset>
     <div [class]="indexBotoes()">
       <div class="botaoPagar">
-        <input type="radio" id="Pagar" name="transacao" value="pagar" checked />
+        <input type="radio" id="Pagar" name="transacao" value="pagar" [(ngModel)]="transacao" (change)="atualizarTransacao(transacao)" checked />
         <label for="Pagar">Pagar</label>
       </div>
       <div class="botaoReceber">
-        <input type="radio" id="Receber" name="transacao" value="receber" />
+        <input type="radio" id="Receber" name="transacao" value="receber" [(ngModel)]="transacao" (change)="atualizarTransacao(transacao)" />
         <label for="Receber">Receber</label>
       </div>
     </div>
   </fieldset>
 </div>
 
-<app-registro></app-registro>
-<!-- class="botoesRadio" -->
+<app-registro [transacao]="transacao" ></app-registro>

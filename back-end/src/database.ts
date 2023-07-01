@@ -41,7 +41,7 @@ async function applySchemaValidation(db: Db) {
           description: "'parcelas' is required and is an array",
           items: {
             bsonType: "object",
-            required: ["nParcela", "valor", "dataPagamento"],
+            required: ["valor", "dataPagamento", "pago"],
             additionalProperties: false,
             properties: {
               valor: {

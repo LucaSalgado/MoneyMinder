@@ -1,5 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+
+import { MongoDBService } from 'src/app/services/mongoDB/mongo-db.service';
+import { Parcela, Registro } from 'src/app/interfaces/registro';
 
 @Component({
   selector: 'app-registro',
@@ -7,7 +10,12 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private mongoDBService: MongoDBService
+  ) {}
+
+  @Input() transacao = '';
 
   @ViewChild('parcelasDiv')
   scrollableDiv!: ElementRef;
@@ -20,7 +28,7 @@ export class RegistroComponent {
         valor: [null, Validators.required],
         dataPagamento: [null, Validators.required],
         pago: [false, Validators.required],
-      }),
+      })
     ]),
     nome: ['', Validators.required],
   });
@@ -50,7 +58,46 @@ export class RegistroComponent {
     }
   }
 
-  onSubmit() {}
+  onSubmit() {
+    if (this.transacao == 'pagar') {
+      let temp: Registro = {
+        apelido: this.registro.get('apelido')?.value || '',
+        numeroParcelas: this.registro.get('numeroParcelas')?.value || 1,
+        parcelas: (this.registro.get('parcelas')?.value || []).map((parcela: any) => ({
+          valor: parcela.valor || null,
+          dataPagamento: parcela.dataPagamento || null,
+          pago: parcela.pago,
+        })),
+        nome: this.registro.get('nome')?.value || '',
+      };
+  
+       this.mongoDBService.criaPagamento(temp).subscribe({
+        complete: () => {
+          this.registro.reset();
+        },
+      });
+    } else if (this.transacao == 'receber') {
+      let temp: Registro = {
+        apelido: this.registro.get('apelido')?.value || '',
+        numeroParcelas: this.registro.get('numeroParcelas')?.value || 1,
+        parcelas: (this.registro.get('parcelas')?.value || []).map((parcela: any) => ({
+          valor: parcela.valor || null,
+          dataPagamento: parcela.dataPagamento || null,
+          pago: parcela.pago,
+        })),
+        nome: this.registro.get('nome')?.value || '',
+      };
+  
+       this.mongoDBService.criaRecebimento(temp).subscribe({
+        complete: () => {
+          this.registro.reset();
+        },
+      });
+    } else {
+      console.error('Não foi definido um tipo de transação');
+    }
+  }
+  
 
   proximo() {
     const divElement: HTMLDivElement = this.scrollableDiv.nativeElement;

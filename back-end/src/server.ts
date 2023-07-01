@@ -2,9 +2,12 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import express from "express";
 import { connectToDatabase } from "./database";
+import { mongoRouter } from "./database.routes"; // Importe as rotas do arquivo database.routes.ts
 
 // Careega as variáveis de ambiente do .env
 dotenv.config();
+const host = "localhost";
+const port = 5200;
 
 const { MONGO_URI } = process.env;
 
@@ -20,8 +23,11 @@ connectToDatabase(MONGO_URI)
     const app = express();
     app.use(cors());
 
-    app.listen(5200, () => {
-      console.log(`Server running at http://localhost:5200...`);
+    // Use as rotas definidas em database.routes.ts
+    app.use("/", mongoRouter);
+
+    app.listen(port, host, () => {
+      console.log(`Servidor rodando em http://${host}:${port}`);
     });
   })
   .catch((error) => console.error(error));
