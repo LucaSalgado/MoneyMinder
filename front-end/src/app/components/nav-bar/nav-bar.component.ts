@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { MenuVisivelService } from 'src/app/services/menuVisivel/menu-visivel.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,10 +7,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
+  constructor(private menuVisivelService: MenuVisivelService){}
   menuVisivel = true;
   isMobile = false;
   @HostListener('window:resize', ['$event'])
-
   ngOnInit() {
     if (window.innerWidth < 768 && !this.isMobile) {
       this.menuVisivel = false;
@@ -30,5 +31,6 @@ export class NavBarComponent {
 
   dropdownMenu(): void {
     this.menuVisivel = !this.menuVisivel;
+    this.menuVisivelService.atualizarEstado(this.menuVisivel);
   }
 }

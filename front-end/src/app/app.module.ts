@@ -12,6 +12,7 @@ import { RegistroPageComponent } from './pages/registro/registro.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MongoDBService } from './services/mongoDB/mongo-db.service';
+import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { MongoDBService } from './services/mongoDB/mongo-db.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MongoDBService],
+  providers: [MongoDBService, MenuVisivelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
