@@ -6,9 +6,7 @@
   .styledInputDate {
     @apply w-full rounded bg-white border border-black appearance-none;
   }
-  .calendarIcon {
-    @apply absolute w-6 h-6 right-0 top-1/2;
-  }
+
   label {
     @apply font-roboto;
   }

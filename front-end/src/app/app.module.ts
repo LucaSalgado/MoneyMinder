@@ -14,7 +14,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MongoDBService } from './services/mongoDB/mongo-db.service';
 import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service';
-import { RegistroSidebarComponent } from './components/registro/sidebar/sidebar.component';
+import { RegistroSidebarComponent } from './pages/registro/sidebar/sidebar.component';
+import { AtualizacaoComponent } from './components/atualizacao/atualizacao.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RegistroSidebarComponent } from './components/registro/sidebar/sidebar.
     RegistroComponent,
     HomeComponent,
     RegistroSidebarComponent,
+    AtualizacaoComponent,
   ],
   imports: [
     BrowserModule,

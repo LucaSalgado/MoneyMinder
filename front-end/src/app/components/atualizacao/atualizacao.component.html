@@ -1,0 +1,10 @@
+<div *ngFor="let registro of pagamentos | async">
+    {{registro | json}}
+    <button type="button" (click)="selecionarRegsitro(registro)" >Selecionar</button>
+    <br>
+</div>
+<br><br>
+<div *ngFor="let registro of recebimentos | async">
+    {{registro | json}}
+    <button type="button" (click)="selecionarRegsitro(registro)" >Selecionar</button>
+</div>

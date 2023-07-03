@@ -15,14 +15,7 @@ export class MongoDBService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getRegistros() {
-    // Pega todos os registros do banco
-    this.httpClient.get<Registro[]>(`${this.url}/`).subscribe((registros) => {
-      this.registros$.next(registros);
-    });
-  }
-
-  private atualizaPagamentos() {
+  private fetchPagamentos() {
     // Pega todos os pagamentos do banco
     this.httpClient
       .get<Registro[]>(`${this.url}/pagamentos`)
@@ -31,13 +24,37 @@ export class MongoDBService {
       });
   }
 
-  private atualizaRecebimentos() {
+  private fetchRecebimentos() {
     // Pega todos os recebimentos do banco
     this.httpClient
       .get<Registro[]>(`${this.url}/recebimentos`)
       .subscribe((recebimentos) => {
         this.recebimentos$.next(recebimentos);
       });
+  }
+
+  private fetchRegistros() {
+    // Pega todos os registros do banco
+    this.httpClient
+      .get<Registro[]>(`${this.url}/`)
+      .subscribe((registros) => {
+        this.registros$.next(registros);
+      });
+  }
+
+  getRegistros() {
+    this.fetchRegistros();
+    return this.registros$;
+  }
+
+  getPagamentos() {
+    this.fetchPagamentos();
+    return this.pagamentos$;
+  }
+
+  getRecebimentos() {
+    this.fetchRecebimentos();
+    return this.recebimentos$;
   }
 
   criaPagamento(pagamento: Registro): Observable<string> {
@@ -48,5 +65,9 @@ export class MongoDBService {
   criaRecebimento(recebimento: Registro): Observable<string> {
     // Registra no Banco um Recebimento
     return this.httpClient.post(`${this.url}/recebimentos`, recebimento, { responseType: 'text'});
+  }
+
+  atualizaRegsitro(registro: Registro): Observable<string> {
+    return this.httpClient.put(`${this.url}/`, registro, { responseType: 'text' });
   }
 }

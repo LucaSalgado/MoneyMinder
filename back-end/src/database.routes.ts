@@ -15,10 +15,46 @@ mongoRouter.get("/", async (req, res) => {
   try {
     const pag = await collections.pagamentos.find({}).toArray();
     const rec = await collections.recebimentos.find({}).toArray();
-    res.status(200).send([].push(pag, rec));
+    res.status(200).send([...pag, ...rec]);
   } catch (error) {
     res.status(500).send(error.message);
   }
+});
+
+mongoRouter.put("/", async (req, res) => {
+  // Faz um post no banco e insere um novo registro
+
+  try {
+    const registro: Registro = req.body;
+    registro.parcelas.forEach((parcela) => {
+      parcela.dataPagamento = new Date(parcela.dataPagamento);
+    });
+    console.log(registro);
+    res.status(200).send("teste funcionou");
+  } catch (error) {
+    console.error(error);
+    res.status(400).send(error.message);
+  }
+
+  /* try {
+    const registro: Registro = req.body;
+    registro.parcelas.forEach((parcela) => {
+      parcela.dataPagamento = new Date(parcela.dataPagamento);
+    });
+
+    const result = await collections.pagamentos.insertOne(registro);
+
+    if (result.acknowledged) {
+      res
+        .status(201)
+        .send(`Foi inserido um novo pagamento: ID ${result.insertedId}.`);
+    } else {
+      res.status(500).send("Falha ao inserir um novo pagamento.");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(400).send(error.message);
+  } */
 });
 
 mongoRouter.get("/pagamentos", async (req, res) => {
