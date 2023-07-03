@@ -4,34 +4,41 @@
 
 @layer components {
     .navBar {
-        @apply md:flex md:flex-row bg-red-500 w-full h-[3.5rem] items-center grid grid-cols-12;
+      @apply md:flex md:flex-row bg-red-500 w-full h-[3.5rem] min-h-max items-center grid grid-cols-12;
     }
-
+  
     .logo {
-        @apply col-start-1 col-span-2 text-center md:p-[1rem];
+      @apply col-start-1 col-span-2 text-center md:p-[1rem];
     }
-
+  
     .links {
-        @apply col-start-1 col-end-13 md:grow relative top-[0.9rem] md:top-0;
+      @apply md:col-start-1 md:col-end-13 md:grow md:relative md:top-0 absolute top-[3.5rem] w-full;
     }
-
+  
     .listaLinks {
-        @apply md:flex md:flex-row md:justify-center;
+      @apply md:flex md:flex-row md:justify-center;
     }
-
+  
     .itemsLinks {
-        @apply  md:px-4 text-center even:bg-yellow-300 odd:bg-green-300;
+      @apply md:px-4 text-center even:bg-yellow-300 odd:bg-green-300;
     }
-
+  
     .link {
-        @apply md:text-white text-lg font-roboto font-normal not-italic;
+      @apply md:text-white text-lg font-roboto font-normal not-italic;
     }
-
+  
     .dropdown {
-        @apply col-end-13 col-span-2 md:hidden text-center;
+      @apply col-end-13 col-span-2 md:hidden text-center;
     }
-
+  
     .menuButton {
-        @apply gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900;
+      @apply gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900;
     }
-}
+  }
+  
+/*   .dropdownContent {
+    @apply absolute z-10 mt-2 py-2 bg-white rounded-lg shadow-xl;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+  } */
