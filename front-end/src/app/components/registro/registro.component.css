@@ -46,7 +46,7 @@
   }
 
   .styledBotao {
-    @apply row-start-1 col-span-1 border rounded border-black;
+    @apply row-start-1 col-span-1 border rounded border-black text-xs md:text-base;
   }
   
   .cadastrarBotao {

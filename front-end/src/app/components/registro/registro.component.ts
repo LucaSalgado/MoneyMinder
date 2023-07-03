@@ -15,7 +15,7 @@ export class RegistroComponent {
     private mongoDBService: MongoDBService
   ) {}
 
-  @Input() transacao = '';
+  @Input() transacao: string = '';
 
   @ViewChild('parcelasDiv')
   scrollableDiv!: ElementRef;

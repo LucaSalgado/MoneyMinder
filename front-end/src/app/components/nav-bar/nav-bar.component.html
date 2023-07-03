@@ -1,17 +1,17 @@
-<nav class="navBar" style="border: dashed lightseagreen 1px;">
-    <span class="logo" style="border: solid black 1px;"><a href="/">Logo</a></span>
-    <span class="dropdown" style="border: solid black 1px;">
+<nav class="navBar">
+    <span class="logo"><a href="/">Logo</a></span>
+    <span class="dropdown">
         <button #menu class="menuButton" type="button" (click)="dropdownMenu()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
         </button>           
     </span>
-    <div class="links" style="border: dashed yellow 1px;" *ngIf="menuVisivel">
+    <div class="links" *ngIf="menuVisivel">
         <ul class="listaLinks">
-            <li class="itemsLinks" style="border: solid green 2px;"><a class="link" href="/calendario">Calendário</a></li>
-            <li class="itemsLinks" style="border: solid orangered 2px;"><a class="link" href="/dashboard">DashBoard</a></li>
-            <li class="itemsLinks" style="border: solid purple 2px;"><a class="link" href="/registro">Registro</a></li>
+            <li class="itemsLinks"><a class="link" href="/calendario">Calendário</a></li>
+            <li class="itemsLinks"><a class="link" href="/dashboard">DashBoard</a></li>
+            <li class="itemsLinks"><a class="link" href="/registro">Registro</a></li>
         </ul>
     </div>
 </nav>

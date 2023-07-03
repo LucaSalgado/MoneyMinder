@@ -8,7 +8,7 @@
     }
 
     .logo {
-        @apply col-start-1 col-span-2 text-center;
+        @apply col-start-1 col-span-2 text-center md:p-[1rem];
     }
 
     .links {
@@ -20,7 +20,7 @@
     }
 
     .itemsLinks {
-        @apply  md:px-4 text-center;
+        @apply  md:px-4 text-center even:bg-yellow-300 odd:bg-green-300;
     }
 
     .link {

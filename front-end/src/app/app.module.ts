@@ -14,6 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MongoDBService } from './services/mongoDB/mongo-db.service';
 import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service';
+import { RegistroSidebarComponent } from './components/registro/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service'
     RegistroPageComponent,
     RegistroComponent,
     HomeComponent,
+    RegistroSidebarComponent,
   ],
   imports: [
     BrowserModule,

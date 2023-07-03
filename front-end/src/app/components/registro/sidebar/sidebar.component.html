@@ -1,0 +1,19 @@
+<div class="h-full grid content-center">
+    <fieldset>
+        <div class="botoesRadio">
+            <div class="botaoCadastrar">
+                <input type="radio" name="operacao" id="cadastrar" value="cadastrar" checked (change)="atualizarOperacao(cadastro.value)" #cadastro>
+                <label for="cadastrar">Cadastrar</label>
+            </div>
+            <div class="botaoAtualizar">
+                <input type="radio" name="operacao" id="atualizar" value="atualizar" (change)="atualizarOperacao(atualizacao.value)" #atualizacao>
+                <label for="atualizar">Atualizar</label>
+            </div>
+            <div class="botaoExcluir">
+                <input type="radio" name="operacao" id="excluir" value="excluir" (change)="atualizarOperacao(exclusao.value)" #exclusao>
+                <label for="excluir">Excluir</label>
+            </div>
+        </div>
+    </fieldset>
+</div>
+  
