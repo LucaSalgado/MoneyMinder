@@ -1,10 +1,119 @@
-<div *ngFor="let registro of pagamentos | async">
-    {{registro | json}}
-    <button type="button" (click)="selecionarRegsitro(registro)" >Selecionar</button>
-    <br>
+<div>
+  <h1 class="text-center pb-4 pt-2">Pagamentos</h1>
+  <div class="carousel-container">
+    <div class="carousel" *ngFor="let registro of pagamentos | async">
+      <p class="text-center">
+        Apelido: {{ registro.apelido }} <br />
+        Nome: {{ registro.nome }} <br />
+        Número de Parcelas: {{ registro.numeroParcelas }}
+      </p>
+      <button
+        class="styledBotao"
+        type="button"
+        (click)="selecionarRegistro(registro)"
+      >
+        Selecionar
+      </button>
+    </div>
+  </div>
 </div>
-<br><br>
-<div *ngFor="let registro of recebimentos | async">
-    {{registro | json}}
-    <button type="button" (click)="selecionarRegsitro(registro)" >Selecionar</button>
+<hr />
+<div>
+  <h1 class="text-center pb-4 pt-2">Recebimentos</h1>
+  <div class="carousel-container">
+    <div class="carousel" *ngFor="let registro of recebimentos | async">
+      <p class="text-center">
+        Apelido: {{ registro.apelido }} <br />
+        Nome: {{ registro.nome }} <br />
+        Número de Parcelas: {{ registro.numeroParcelas }}
+      </p>
+      <button
+        class="styledBotao"
+        type="button"
+        (click)="selecionarRegistro(registro)"
+      >
+        Selecionar
+      </button>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- Adicione o formulário de atualização de registro -->
+<div *ngIf="registro">
+  <div class="mt-4">
+    <div class="mb-4">
+      <label for="apelido" class="block text-gray-700">Apelido</label>
+      <input
+        id="apelido"
+        type="text"
+        class="styledInput"
+        [(ngModel)]="registro.apelido"
+        name="apelido"
+        required
+      />
+    </div>
+    <div class="mb-4">
+      <label for="nome" class="block text-gray-700">Nome</label>
+      <input
+        id="nome"
+        type="text"
+        class="styledInput"
+        [(ngModel)]="registro.nome"
+        name="nome"
+        required
+      />
+    </div>
+    <div class="mb-4">
+      <label for="numeroParcelas" class="block text-gray-700"
+        >Número de Parcelas</label
+      >
+      <input
+        id="numeroParcelas"
+        type="number"
+        class="styledInput"
+        [(ngModel)]="registro.numeroParcelas"
+        name="numeroParcelas"
+        required
+      />
+    </div>
+    <div>
+      <div
+        *ngFor="let parcela of registro.parcelas; let i = index"
+        class="styledDiv"
+      >
+        <h2 class="text-center pb-4 pt-2">Parcela Nº:{{ i + 1 }}</h2>
+        <div class="inputBloco">
+          <label for="valor-{{ i }}">Valor: </label>
+          <input
+            class="styledInput"
+            id="valor-{{ i }}"
+            type="number"
+            [(ngModel)]="parcela.valor"
+          />
+        </div>
+        <div class="dataPagamento inputBloco">
+          <label for="dataPagamento-{{ i }}">Data: </label>
+          <input
+            class="styledInputDate"
+            id="dataPagamento-{{ i }}"
+            type="date"
+            [(ngModel)]="parcela.dataPagamento"
+          />
+        </div>
+        <div class="inputBloco inputBotoes">
+          <span class="col-start-1 col-span-2 row-start-1">
+            <label for="pago-{{ i }}">Pago: </label>
+            <input
+              class="styledInputCheckbox"
+              id="pago-{{ i }}"
+              type="checkbox"
+            />
+          </span>
+        </div>
+        <hr>
+      </div>
+      <button class="styledBotao w-full items-center pb-4 pt-2" type="submit">Atualizar Registro</button>
+    </div>
+  </div>
 </div>

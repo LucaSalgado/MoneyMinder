@@ -1,25 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MongoDBService } from 'src/app/services/mongoDB/mongo-db.service';
 
 import { Registro, Parcela } from 'src/app/interfaces/registro';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-atualizacao',
   templateUrl: './atualizacao.component.html',
   styleUrls: ['./atualizacao.component.css']
 })
-export class AtualizacaoComponent {
+export class AtualizacaoComponent implements OnInit{
 
   pagamentos: Observable<Registro[]> = new Observable();
   recebimentos: Observable<Registro[]> = new Observable();
-  registro: Registro | null = null;
+  registro: Registro | undefined;
+
+  @ViewChild('parcelasDiv')
+  scrollableDiv!: ElementRef;
 
   constructor(private mongoDBService: MongoDBService) {}
 
   ngOnInit(): void {
-    this.mongoDBService.getPagamentos();
-    this.mongoDBService.getRecebimentos();
     this.fetchRegistros();
   }
 
@@ -28,8 +29,22 @@ export class AtualizacaoComponent {
     this.recebimentos = this.mongoDBService.getRecebimentos();
   }
 
-  selecionarRegsitro(registro: Registro): void {
-    this.registro = registro;
-    console.log(typeof(this.registro), this.registro);
+  selecionarRegistro(registro: Registro): void {
+    this.registro = registro; // Importe 'of' do 'rxjs' para criar um Observable com o registro
+  }  
+
+  proximo() {
+    const divElement: HTMLDivElement = this.scrollableDiv.nativeElement;
+    setTimeout(() => {
+      divElement.scrollLeft += divElement.offsetWidth;
+    }, 150);
   }
+
+  anterior() {
+    const divElement: HTMLDivElement = this.scrollableDiv.nativeElement;
+    setTimeout(() => {
+      divElement.scrollLeft -= divElement.offsetWidth;
+    }, 150);
+  }
+
 }

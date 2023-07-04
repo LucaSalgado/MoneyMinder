@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .styledBotao {
+    @apply rounded border border-slate-100 shadow p-2 text-xs md:text-base mt-4 hover:bg-blue-400;
+  }
+  .carousel-container {
+    @apply flex overflow-x-scroll scroll-smooth;
+  }
+  .carousel {
+    @apply text-center py-5 block w-1/4 shrink-0 shadow border border-slate-100;
+  }
+  p {
+    @apply px-2;
+  }
+
+  .styledInput {
+    @apply w-full border rounded border-black;
+  }
+
+  .inputBloco {
+    @apply my-4;
+  }
+
+  .dataPagamento {
+    @apply relative;
+  }
+
+  .styledInputDate {
+    @apply w-full rounded bg-white border border-black appearance-none;
+  }
+
+  .inputBotoes {
+    @apply grid grid-cols-4 grid-rows-2 gap-x-1 gap-y-[2rem];
+  }
+
+  .styledInputCheckbox {
+    @apply align-middle h-[1.2rem] w-[1.2rem];
+  }
+
+  .cadastrarBotao {
+    @apply row-start-2 col-start-2 col-span-2 min-w-fit px-3 border rounded border-black;
+  }
+
+  .parcelas {
+    @apply flex overflow-x-hidden scroll-smooth transition-transform duration-500;
+  }
+
+  .styledDiv {
+    @apply px-0.5 inline w-full shrink-0;
+  }
+}
