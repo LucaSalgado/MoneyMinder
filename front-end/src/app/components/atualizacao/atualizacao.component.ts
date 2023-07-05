@@ -7,13 +7,13 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-atualizacao',
   templateUrl: './atualizacao.component.html',
-  styleUrls: ['./atualizacao.component.css']
+  styleUrls: ['./atualizacao.component.css'],
 })
-export class AtualizacaoComponent implements OnInit{
-
+export class AtualizacaoComponent implements OnInit {
   pagamentos: Observable<Registro[]> = new Observable();
   recebimentos: Observable<Registro[]> = new Observable();
   registro: Registro | undefined;
+  tipo: string | undefined;
 
   @ViewChild('parcelasDiv')
   scrollableDiv!: ElementRef;
@@ -29,8 +29,9 @@ export class AtualizacaoComponent implements OnInit{
     this.recebimentos = this.mongoDBService.getRecebimentos();
   }
 
-  selecionarRegistro(registro: Registro): void {
-    this.registro = registro; // Importe 'of' do 'rxjs' para criar um Observable com o registro
+  selecionarRegistro(registro: Registro, tipo: string): void {
+    this.registro = { ...registro };
+    this.tipo = tipo;
   }  
 
   proximo() {
@@ -47,4 +48,38 @@ export class AtualizacaoComponent implements OnInit{
     }, 150);
   }
 
+  atualizarDataParcela(parcela: Parcela, event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    parcela.dataPagamento = new Date(inputValue);
+  }
+
+  modificarParcelas(parcelas: Parcela[], numeroParcelas: number) {
+    if (parcelas.length < numeroParcelas) {
+      while (parcelas.length < numeroParcelas) {
+        parcelas.push({ valor: 0, dataPagamento: new Date(), pago: false });
+      }
+    } else {
+      while (parcelas.length > numeroParcelas) {
+        parcelas.pop();
+      }
+    }
+  }
+
+  atualizar() {
+    if (this.tipo == 'pagar') {
+      this.mongoDBService.atualizaPagamento(this.registro!).subscribe({
+        complete: () => {
+          this.registro = undefined;
+          this.fetchRegistros();
+        },
+      });
+    } else if (this.tipo == 'receber') {
+      this.mongoDBService.atualizaRecebimento(this.registro!).subscribe({
+        complete: () => {
+          this.registro = undefined;
+          this.fetchRegistros();
+        },
+      });
+    }
+  }
 }

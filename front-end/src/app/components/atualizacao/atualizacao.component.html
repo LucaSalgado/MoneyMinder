@@ -10,7 +10,7 @@
       <button
         class="styledBotao"
         type="button"
-        (click)="selecionarRegistro(registro)"
+        (click)="selecionarRegistro(registro, 'pagar')"
       >
         Selecionar
       </button>
@@ -30,7 +30,7 @@
       <button
         class="styledBotao"
         type="button"
-        (click)="selecionarRegistro(registro)"
+        (click)="selecionarRegistro(registro, 'receber')"
       >
         Selecionar
       </button>
@@ -73,7 +73,9 @@
         type="number"
         class="styledInput"
         [(ngModel)]="registro.numeroParcelas"
+        (change)="modificarParcelas(registro.parcelas, registro.numeroParcelas)"
         name="numeroParcelas"
+        min="1"
         required
       />
     </div>
@@ -98,7 +100,9 @@
             class="styledInputDate"
             id="dataPagamento-{{ i }}"
             type="date"
-            [(ngModel)]="parcela.dataPagamento"
+            [ngModel]="parcela.dataPagamento | date : 'yyyy-MM-dd'"
+            (blur)="atualizarDataParcela(parcela, $event)"
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
           />
         </div>
         <div class="inputBloco inputBotoes">
@@ -108,12 +112,19 @@
               class="styledInputCheckbox"
               id="pago-{{ i }}"
               type="checkbox"
+              [(ngModel)]="parcela.pago"
             />
           </span>
         </div>
-        <hr>
+        <hr />
       </div>
-      <button class="styledBotao w-full items-center pb-4 pt-2" type="submit">Atualizar Registro</button>
+      <button
+        class="styledBotao w-full items-center pb-4 pt-2"
+        (click)="atualizar()"
+        type="submit"
+      >
+        Atualizar Registro
+      </button>
     </div>
   </div>
 </div>

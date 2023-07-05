@@ -67,7 +67,11 @@ export class MongoDBService {
     return this.httpClient.post(`${this.url}/recebimentos`, recebimento, { responseType: 'text'});
   }
 
-  atualizaRegsitro(registro: Registro): Observable<string> {
-    return this.httpClient.put(`${this.url}/`, registro, { responseType: 'text' });
+  atualizaPagamento(registro: Registro): Observable<string> {
+    return this.httpClient.put(`${this.url}/pagamentos`, registro, { responseType: 'text' });
+  }
+
+  atualizaRecebimento(registro: Registro): Observable<string> {
+    return this.httpClient.put(`${this.url}/recebimentos`, registro, { responseType: 'text' });
   }
 }

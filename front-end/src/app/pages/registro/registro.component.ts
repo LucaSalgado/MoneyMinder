@@ -10,7 +10,7 @@ export class RegistroPageComponent {
   constructor(private menuVisivelService: MenuVisivelService){}
   menuVisivel: boolean = false;
   @Input() transacao: string = "pagar"; // Valor padrão do botão de rádio selecionado
-  operacao: string = "cadastrar"; // Valor padrão do botão de rádio selecionado
+  operacao: string = "atualizar"; // Valor padrão do botão de rádio selecionado
   
 
   ngOnInit(): void {
