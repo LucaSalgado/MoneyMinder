@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .carousel-container {
+    @apply flex overflow-x-scroll scroll-smooth;
+  }
+  .carousel {
+    @apply text-center py-5 block w-1/4 shrink-0 shadow border border-slate-100;
+  }
+  .styledBotao {
+    @apply rounded border border-slate-100 shadow p-2 text-xs md:text-base mt-4 hover:bg-red-400;
+  }
+  .styledBotaoCancelar {
+    @apply rounded border border-slate-100 shadow p-2 text-xs md:text-base mt-4 hover:bg-blue-400;
+  }
+}

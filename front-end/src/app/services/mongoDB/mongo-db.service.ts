@@ -74,4 +74,14 @@ export class MongoDBService {
   atualizaRecebimento(registro: Registro): Observable<string> {
     return this.httpClient.put(`${this.url}/recebimentos`, registro, { responseType: 'text' });
   }
+
+  excluiPagamento(id: string): Observable<string> {
+    return this.httpClient.delete(`${this.url}/pagamentos/${id}`, { responseType: 'text' });
+  }
+  
+  excluiRecebimento(id: string): Observable<string> {
+  
+    return this.httpClient.delete(`${this.url}/recebimentos/${id}`, { responseType: 'text' });
+  }
+  
 }

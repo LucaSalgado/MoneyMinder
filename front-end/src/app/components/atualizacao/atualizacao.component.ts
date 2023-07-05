@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MongoDBService } from 'src/app/services/mongoDB/mongo-db.service';
 
 import { Registro, Parcela } from 'src/app/interfaces/registro';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-atualizacao',
@@ -78,7 +78,7 @@ export class AtualizacaoComponent implements OnInit {
         complete: () => {
           this.registro = undefined;
           this.fetchRegistros();
-        },
+        }
       });
     }
   }

@@ -16,6 +16,7 @@ import { MongoDBService } from './services/mongoDB/mongo-db.service';
 import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service';
 import { RegistroSidebarComponent } from './pages/registro/sidebar/sidebar.component';
 import { AtualizacaoComponent } from './components/atualizacao/atualizacao.component';
+import { ExclusaoComponent } from './components/exclusao/exclusao.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AtualizacaoComponent } from './components/atualizacao/atualizacao.compo
     HomeComponent,
     RegistroSidebarComponent,
     AtualizacaoComponent,
+    ExclusaoComponent,
   ],
   imports: [
     BrowserModule,
