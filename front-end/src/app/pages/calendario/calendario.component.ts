@@ -27,6 +27,10 @@ export class CalendarioComponent {
     this.pagamentos = this.mongoDBService.getPagamentos();
     this.recebimentos = this.mongoDBService.getRecebimentos();
 
+    this.criaEventos();
+  }
+
+  private criaEventos(): void {
     // Subscreva-se aos observables de pagamentos e recebimentos para obter os dados
     combineLatest([this.pagamentos, this.recebimentos]).subscribe(
       ([pagamentos, recebimentos]) => {
