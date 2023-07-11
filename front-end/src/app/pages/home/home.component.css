@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .intro {
+        @apply m-10 border rounded shadow p-4 h-full;
+    }
+
+    .intro h1 {
+        @apply text-center text-2xl font-money;
+    }
+
+    .intro h3 {
+        @apply text-center pt-4 font-semibold text-xl font-minder;
+    }
+
+    .intro p {
+        @apply text-justify mx-[16%] pt-10 text-base font-roboto;
+    }
+}
