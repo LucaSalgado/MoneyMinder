@@ -4,10 +4,6 @@
 
 @layer components {
 
-  .indexBotao {
-    @apply -z-10;
-  }
-
   .botoesRadio {
     @apply grid grid-cols-2 relative;
   }

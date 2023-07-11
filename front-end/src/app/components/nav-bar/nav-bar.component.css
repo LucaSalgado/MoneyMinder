@@ -12,7 +12,7 @@
     }
   
     .links {
-      @apply md:col-start-1 md:col-end-13 md:grow md:relative md:top-0 absolute top-[3.5rem] w-full;
+      @apply md:col-start-1 md:col-end-13 md:grow md:relative md:top-0 absolute top-[3.5rem] w-full z-10;
     }
   
     .listaLinks {
