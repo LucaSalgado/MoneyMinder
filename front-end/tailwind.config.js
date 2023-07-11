@@ -7,6 +7,8 @@ module.exports = {
     fontFamily: {
       roboto: ['Roboto', 'sans-serif'], // Regular 400, Medium 500, Medium 500 Italic e Bold 700
       sans: ['ui-sans-serif', 'system-ui'],
+      money: ['Pacifico', 'cursive'],
+      minder: ['Share Tech Mono', 'monospace']
     },
     extend: {
       colors: {

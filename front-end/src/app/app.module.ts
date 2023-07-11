@@ -18,6 +18,7 @@ import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service'
 import { RegistroSidebarComponent } from './pages/registro/sidebar/sidebar.component';
 import { AtualizacaoComponent } from './components/atualizacao/atualizacao.component';
 import { ExclusaoComponent } from './components/exclusao/exclusao.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ExclusaoComponent } from './components/exclusao/exclusao.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    NgChartsModule
   ],
   providers: [MongoDBService, MenuVisivelService],
   bootstrap: [AppComponent]

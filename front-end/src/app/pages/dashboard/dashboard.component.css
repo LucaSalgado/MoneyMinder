@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .dashboard {
+        @apply flex flex-col items-center md:items-stretch shadow border rounded mx-[5%] my-[5%] md:mx-[14%] md:my-[2%] py-4;
+    }
+    .infoMes {
+        @apply my-4 md:grid md:grid-cols-2 xl:grid xl:grid-cols-3;
+    }
+    .infoGeral {
+        @apply my-4 md:grid md:grid-cols-2 xl:grid xl:grid-cols-3;
+    }
+    .balanco {
+        @apply mb-4 md:col-span-2 xl:col-span-3;
+    }
+    .balanco h1 {
+        @apply text-4xl text-center;
+    }
+    .balanco h2 {
+        @apply text-2xl text-center pt-4;
+    }
+    .grafico {
+        @apply flex flex-col items-center;
+    }
+    .grafico h1 {
+        @apply text-2xl text-center py-4;
+    }
+}

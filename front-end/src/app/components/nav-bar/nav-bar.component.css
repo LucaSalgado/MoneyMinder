@@ -20,7 +20,11 @@
     }
   
     .itemsLinks {
-      @apply md:px-4 text-center even:bg-yellow-300 odd:bg-green-300;
+      @apply md:px-4 text-center even:bg-blue-400 odd:bg-blue-500 md:even:bg-red-500 md:odd:bg-red-500;
+    }
+
+    .itemsLinks:hover {
+      @apply even:bg-blue-200 odd:bg-blue-200 md:even:bg-red-500 md:odd:bg-red-500;
     }
   
     .link {
@@ -34,11 +38,12 @@
     .menuButton {
       @apply gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900;
     }
+
+    .money {
+      @apply font-money text-base;
+    }
+
+    .minder {
+      @apply font-minder text-2xl;
+    }
   }
-  
-/*   .dropdownContent {
-    @apply absolute z-10 mt-2 py-2 bg-white rounded-lg shadow-xl;
-    top: calc(100% + 0.5rem);
-    left: 0;
-    right: 0;
-  } */
