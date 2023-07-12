@@ -13,6 +13,30 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "assert",
+              "buffer",
+              "console-browserify",
+              "constants-browserify",
+              "crypto-browserify",
+              "domain-browser",
+              "events",
+              "stream-http",
+              "https-browserify",
+              "os-browserify/browser",
+              "path-browserify",
+              "punycode",
+              "process/browser",
+              "querystring-es3",
+              "stream-browserify",
+              "string_decoder",
+              "util",
+              "timers-browserify",
+              "tty-browserify",
+              "url",
+              "vm-browserify",
+              "browserify-zlib"
+            ],
             "outputPath": "dist/money-minder",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,7 +51,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
