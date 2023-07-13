@@ -15,10 +15,10 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MongoDBService } from './services/mongoDB/mongo-db.service';
 import { MenuVisivelService } from './services/menuVisivel/menu-visivel.service';
-import { RegistroSidebarComponent } from './pages/registro/sidebar/sidebar.component';
 import { AtualizacaoComponent } from './components/atualizacao/atualizacao.component';
 import { ExclusaoComponent } from './components/exclusao/exclusao.component';
 import { NgChartsModule } from 'ng2-charts';
+import { RegistroSidebarComponent } from './pages/registro/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { NgChartsModule } from 'ng2-charts';
     RegistroPageComponent,
     RegistroComponent,
     HomeComponent,
-    RegistroSidebarComponent,
     AtualizacaoComponent,
     ExclusaoComponent,
+    RegistroSidebarComponent
   ],
   imports: [
     BrowserModule,

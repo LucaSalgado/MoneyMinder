@@ -1,16 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { RegistroPageComponent } from './registro.component';
+import { RegistroComponent } from 'src/app/components/registro/registro.component';
 
 describe('RegistroComponent', () => {
-  let component: RegistroPageComponent;
-  let fixture: ComponentFixture<RegistroPageComponent>;
+  let component: RegistroComponent;
+  let fixture: ComponentFixture<RegistroComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RegistroPageComponent]
+      imports: [HttpClientModule, ReactiveFormsModule, FormsModule],
+      declarations: [RegistroComponent]
     });
-    fixture = TestBed.createComponent(RegistroPageComponent);
+    fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
