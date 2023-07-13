@@ -38,6 +38,12 @@ Com este comando o servidor será iniciado e a API de comunicação com o MongoD
 
 Com este comando o Angular iniciará o servidor de desenvolvimento e suas mudanças acontecerão em tempo real.
 
+## Testes
+
+- Para executar os testes usando o Karma e o Jasmine, execute o seguinte comando via terminal na pasta front-end:
+
+    ```ng test```
+
 # Sobre
 
 Este projeto foi criado pelo estudante de Ciência da Computação [Lucas Giovani de Paula Salgado]('github.com/LucaSalgado') como um projeto para a disciplina de Projeto Integrado.
