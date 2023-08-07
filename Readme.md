@@ -19,7 +19,7 @@ O dashboard do MoneyMinder permite a visualização de métricas que ajudam a en
 - [Chartjs]('chartjs.org')
 - [Ts-node]('typestrong.org/ts-node/')
 
-# Instalação
+# Execução
 ## Pré-requisitos
 
 Tenha certeza que você possui o Nodejs e o NPM instalados em sua maquina antes de começar.
