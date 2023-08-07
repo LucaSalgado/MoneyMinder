@@ -24,7 +24,7 @@ O dashboard do MoneyMinder permite a visualização de métricas que ajudam a en
 
 Tenha certeza que você possui o Nodejs e o NPM instalados em sua maquina antes de começar.
 
-## Instalação
+## Execução
 
 - Acesse a pasta back-end e digite o seguinte comando: 
 
